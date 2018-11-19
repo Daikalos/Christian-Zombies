@@ -1,0 +1,5 @@
+
+*.ipch
+*.db
+*.opendb
+Game/.vs/Game/v15/.suo
