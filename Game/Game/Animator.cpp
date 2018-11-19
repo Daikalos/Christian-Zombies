@@ -18,6 +18,7 @@ sf::Sprite Animator::Animate(sf::Texture aTexture, int aStartX, int aStartY, int
 	sf::IntRect tempSourceRect(aStartX, aStartY, aSpriteWidth, aSpriteHeight);
 	sf::Sprite tempSprite(aTexture, tempSourceRect);
 
+	//HELLO
 	if (myClock.getElapsedTime().asSeconds() > anAninmationSpeed)
 	{
 		if (tempSourceRect.left == aSpriteWidth * someColumns)
