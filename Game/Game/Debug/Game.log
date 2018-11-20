@@ -1,4 +1,2 @@
-﻿  NCFReader.cpp
-c:\users\tobias.garpenhall\source\repos\game\game\ncfreader.cpp(44): warning C4018: '<': signed/unsigned mismatch
-c:\users\tobias.garpenhall\source\repos\game\game\ncfreader.cpp(22): warning C4715: 'NCFReader::ReadUnfiltered': not all control paths return a value
-  Game.vcxproj -> C:\Users\tobias.garpenhall\source\repos\Game\Debug\Game.exe
+﻿  Entity.cpp
+  Game.vcxproj -> C:\Users\nemo.wiren\Documents\Christian Zombies\Game\Debug\Game.exe
