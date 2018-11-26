@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "GameInfo.h"
 
 Player::Player()
 {
@@ -15,8 +16,9 @@ Player::Player()
 	SetHealthPoints(20.0f);
 	SetDamageValue(5.0f);
 
-	myPlayerShape.setPosition(sf::Vector2f(100, 100));
 	myPlayerShape.setSize(sf::Vector2f(50, 100));
+	myPlayerShape.setPosition(sf::Vector2f(	(GameInfo::GetWindow()->getSize().x / 2) - (myPlayerShape.getSize().x / 2), 
+											(GameInfo::GetWindow()->getSize().y / 2) - (myPlayerShape.getSize().y / 2)));
 	myPlayerShape.setFillColor(sf::Color::Blue);
 }
 
