@@ -1,20 +1,19 @@
+#include "stdafx.h"
+#include <SFML/Graphics.hpp>
+
 #ifndef ENEMY_HEADER
 #define ENEMY_HEADER
 
-#include "Entity.h"
-
-class Enemy : public Entity
+class Enemy
 {
 public:
 	Enemy();
 	~Enemy();
 
-	virtual void Init() override;
-	virtual void Update(const float &aDeltaTimeValue) override;
-	virtual void Draw(sf::RenderWindow *aWindow) override;
+	void Draw(sf::RenderWindow *aWindow);
 
-	virtual void Move() override;
-	virtual void Attack() override;
+	sf::RectangleShape GetShape();
+
 private:
 	sf::RectangleShape myEnemyShape;
 };

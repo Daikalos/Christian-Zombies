@@ -1,23 +1,22 @@
 #ifndef PLAYER_HEADER
 #define PLAYER_HEADER
 
-#include "Entity.h"
+#include "stdafx.h"
+#include <SFML/Graphics.hpp>
 
-class Player : public Entity
+class Player
 {
 public:
 	Player();
 	~Player();
 
-	virtual void Init() override;
-	virtual void Update(const float &aDeltaTimeValue) override;
-	virtual void Draw(sf::RenderWindow *aWindow) override;
+	void Update(const float &aDeltaTime, bool &tempSpacePressed);
+	void Draw(sf::RenderWindow *aWindow);
 
-	virtual void Move() override;
-	virtual void Attack() override;
+	void PlayerMovement(const float &aDeltaTime);
+	void PlayerAttack(const float &aDeltaTime, bool &tempSpacePressed);
+
 private:
-	bool mySpacePressedFlag;
-
 	float 
 		myXMovementSpeed,
 		myMaxXMovementSpeed,

@@ -11,10 +11,6 @@ Player::Player()
 	myMaxXMovementSpeed = mySpeed;
 	myMaxYMovementSpeed = mySpeed;
 
-	SetMaxHealth(20.0f);
-	SetHealthPoints(20.0f);
-	SetDamageValue(5.0f);
-
 	myPlayerShape.setPosition(sf::Vector2f(100, 100));
 	myPlayerShape.setSize(sf::Vector2f(50, 100));
 	myPlayerShape.setFillColor(sf::Color::Blue);
@@ -25,28 +21,27 @@ Player::~Player()
 
 }
 
-void Player::Init() { }
-void Player::Update(const float &aDeltaTimeValue) 
+void Player::Update(const float &aDeltaTime, bool &tempSpacePressed)
 {
-	myDeltaTime = aDeltaTimeValue;
-	Move();
-	Attack();
+	PlayerMovement(aDeltaTime);
+	PlayerAttack(aDeltaTime, tempSpacePressed);
 }
+
 void Player::Draw(sf::RenderWindow *aWindow)
 {
 	aWindow->draw(myPlayerShape);
 }
 
-void Player::Move() 
+void Player::PlayerMovement(const float &aDeltaTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && myXMovementSpeed > -myMaxXMovementSpeed)
 	{
-		myXMovementSpeed -= (float)(0.70 * myDeltaTime * 60);
+		myXMovementSpeed -= (float)(0.70 * aDeltaTime * 60);
 		myPlayerDirection = 0;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && myXMovementSpeed < myMaxXMovementSpeed)
 	{
-		myXMovementSpeed += (float)(0.70 * myDeltaTime * 60);
+		myXMovementSpeed += (float)(0.70 * aDeltaTime * 60);
 		myPlayerDirection = 1;
 	}
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -56,30 +51,31 @@ void Player::Move()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && myYMovementSpeed > -myMaxYMovementSpeed)
 	{
-		myYMovementSpeed -= (float)(0.70 * myDeltaTime * 60);
+		myYMovementSpeed -= (float)(0.70 * aDeltaTime * 60);
 		myPlayerDirection = 2;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && myYMovementSpeed < myMaxYMovementSpeed)
 	{
-		myYMovementSpeed += (float)(0.70 * myDeltaTime * 60);
+		myYMovementSpeed += (float)(0.70 * aDeltaTime * 60);
 		myPlayerDirection = 3;
 	}
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		myYMovementSpeed = 0;
+	{ 
+		myYMovementSpeed = 0; 
 	}
 
-	myPlayerShape.move(myXMovementSpeed * myDeltaTime * 60, myYMovementSpeed * myDeltaTime * 60);
+	myPlayerShape.move(myXMovementSpeed * aDeltaTime * 60, myYMovementSpeed * aDeltaTime * 60);
 }
-void Player::Attack() 
+
+void Player::PlayerAttack(const float &aDeltaTime, bool &tempSpacePressed)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !mySpacePressedFlag)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !tempSpacePressed)
 	{
 		//ATTACK HERE
-		mySpacePressedFlag = true;
+		tempSpacePressed = true;
 	}
 	else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		mySpacePressedFlag = false;
+		tempSpacePressed = false;
 	}
 }
