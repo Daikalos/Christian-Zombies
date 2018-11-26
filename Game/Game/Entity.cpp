@@ -37,11 +37,11 @@ void Entity::Init()
 	SetDamageValue(5.0f);
 }
 
-void Entity::Update()
+void Entity::Update(const float &aDeltaTimeValue)
 {
 }
 
-void Entity::Draw()
+void Entity::Draw(sf::RenderWindow *aWindow)
 {
 }
 

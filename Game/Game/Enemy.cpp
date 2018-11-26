@@ -13,12 +13,12 @@ Enemy::~Enemy()
 
 }
 
-void Enemy::Draw(sf::RenderWindow *aWindow)
+void Enemy::Init() { }
+void Enemy::Update(const float & aDeltaTimeValue) { }
+void Enemy::Draw(sf::RenderWindow *aWindow) 
 {
 	aWindow->draw(myEnemyShape);
 }
 
-sf::RectangleShape Enemy::GetShape()
-{
-	return myEnemyShape;
-}
+void Enemy::Move() { }
+void Enemy::Attack() { }
