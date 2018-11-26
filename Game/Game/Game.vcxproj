@@ -158,6 +158,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="NCFReader.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Postmaster.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="NCFReader.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Postmaster.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
