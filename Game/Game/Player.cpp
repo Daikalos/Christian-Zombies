@@ -66,7 +66,7 @@ void Player::Move()
 		myYMovementSpeed += (float)(0.70 * myDeltaTime * 60);
 		myPlayerDirection = 3;
 	}
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::W) ^ myPlayerShape.getPosition().y < GameInfo::GetWindow()->getSize().y / 4) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::S) ^ myPlayerShape.getPosition().y > GameInfo::GetWindow()->getSize().y * 2 / 3))
 	{
 		myYMovementSpeed = 0;
 	}
