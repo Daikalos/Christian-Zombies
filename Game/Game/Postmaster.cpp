@@ -1,36 +1,37 @@
 #include "stdafx.h"
 #include "Postmaster.h"
 
-std::vector<Subscriber*> Postmaster::mySubscribers;
+std::vector<MessageType> Postmaster::myMessages;
+
+Postmaster::Postmaster()
+{
+
+}
 
 Postmaster::~Postmaster()
 {
 
 }
 
-void Postmaster::Unsubscribe(Subscriber *aSubscriber)
+void Postmaster::RecieveMessage(MessageType aMessage)
 {
-	for (size_t i = mySubscribers.size(); i > 0; i--)
-	{
-		if (mySubscribers[i - 1] == aSubscriber)
-		{
-			mySubscribers[i - 1] = NULL;
-			delete mySubscribers[i - 1];
+	myMessages.push_back(aMessage);
+}
 
-			mySubscribers.erase(mySubscribers.begin() + (i - 1));
+void Postmaster::DeleteMessage(MessageType aMessageType, int aPosition)
+{
+	myMessages.erase(myMessages.begin() + aPosition);
+}
+
+bool Postmaster::GetMessage(MessageType aMessageType)
+{
+	for (size_t i = myMessages.size(); i > 0; i--)
+	{
+		if (myMessages[i - 1] == aMessageType)
+		{
+			DeleteMessage(myMessages[i - 1], (i- 1));
+			return true;
 		}
 	}
-}
-
-void Postmaster::Subscribe(Subscriber *aSubscriber)
-{
-	mySubscribers.push_back(aSubscriber);
-}
-	
-void Postmaster::GetMessage(const MessageType &aMessageType)
-{
-	for (size_t i = mySubscribers.size(); i > 0; i--)
-	{
-		mySubscribers[i - 1]->RecieveMessage(aMessageType);
-	}
+	return false;
 }

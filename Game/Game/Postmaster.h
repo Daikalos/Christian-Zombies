@@ -2,21 +2,27 @@
 #define POSTMASTER_HEADER
 
 #include "stdafx.h"
-#include "Subscriber.h"
 #include <vector>
+
+enum MessageType //All actions 
+{
+	Type1,
+	Type2,
+	Type3
+};
 
 class Postmaster
 {
 public:
+	Postmaster();
 	~Postmaster();
 	
-	static void Unsubscribe(Subscriber *aSubscriber);
-	static void Subscribe(Subscriber *aSubscriber);
-	static void GetMessage(const MessageType &aMessageType);
+	static void RecieveMessage(MessageType aMessage);
+	static void DeleteMessage(MessageType aMessageType, int aPosition);
+	static bool GetMessage(MessageType aMessageType);
 
 private:
-	Postmaster() {};
-	static std::vector<Subscriber*> mySubscribers;
+	static std::vector<MessageType> myMessages;
 };
 
 #endif // !POSTMASTER_HEADER
