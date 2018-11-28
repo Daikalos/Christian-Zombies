@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "GameInfo.h"
 
 Player::Player()
 {
@@ -15,8 +16,9 @@ Player::Player()
 	SetHealthPoints(20.0f);
 	SetDamageValue(5.0f);
 
-	myPlayerShape.setPosition(sf::Vector2f(100, 100));
 	myPlayerShape.setSize(sf::Vector2f(50, 100));
+	myPlayerShape.setPosition(sf::Vector2f(	(GameInfo::GetWindow()->getSize().x / 2) - (myPlayerShape.getSize().x / 2), 
+											(GameInfo::GetWindow()->getSize().y / 2) - (myPlayerShape.getSize().y / 2)));
 	myPlayerShape.setFillColor(sf::Color::Blue);
 }
 
@@ -64,7 +66,7 @@ void Player::Move()
 		myYMovementSpeed += (float)(0.70 * myDeltaTime * 60);
 		myPlayerDirection = 3;
 	}
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::W) ^ myPlayerShape.getPosition().y < GameInfo::GetWindow()->getSize().y / 4) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::S) ^ myPlayerShape.getPosition().y > GameInfo::GetWindow()->getSize().y * 2 / 3))
 	{
 		myYMovementSpeed = 0;
 	}
