@@ -22,3 +22,11 @@ void Enemy::Draw(sf::RenderWindow *aWindow)
 
 void Enemy::Move() { }
 void Enemy::Attack() { }
+
+void Enemy::RecieveMessage(const MessageType &aMessageType)
+{
+	if (aMessageType == MessageType::Type1)
+	{
+		myEnemyShape.setSize(sf::Vector2f(rand() % 100, rand() % 100));
+	}
+}

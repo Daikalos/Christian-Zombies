@@ -2,8 +2,10 @@
 #define ENEMY_HEADER
 
 #include "Entity.h"
+#include "Subscriber.h"
+#include "Postmaster.h"
 
-class Enemy : public Entity
+class Enemy : public Entity, public Subscriber
 {
 public:
 	Enemy();
@@ -15,6 +17,8 @@ public:
 
 	virtual void Move() override;
 	virtual void Attack() override;
+	virtual void RecieveMessage(const MessageType & aMessageType) override;
+
 private:
 	sf::RectangleShape myEnemyShape;
 };
