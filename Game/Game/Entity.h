@@ -4,7 +4,8 @@
 #include "stdafx.h"
 #include <SFML/Graphics.hpp>
 
-class Entity {
+class Entity 
+{
 public:
 	float GetHealthPoints() const;
 	void SetHealthPoints(float someHealthPoints);
