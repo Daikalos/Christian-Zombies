@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Animator.h"
 #include <SFML\Graphics.hpp>
+#include "GameInfo.h"
 
 Animator::Animator()
 {
@@ -13,21 +14,29 @@ Animator::~Animator()
 
 }
 
-sf::Sprite Animator::Animate(sf::Texture aTexture, int aStartX, int aStartY, int aSpriteWidth, int aSpriteHeight, int someColumns, int someRows, float anAninmationSpeed)
+void Animator::Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow)
 {
-	sf::IntRect tempSourceRect(aStartX, aStartY, aSpriteWidth, aSpriteHeight);
-	sf::Sprite tempSprite(aTexture, tempSourceRect);
+	int tempSpriteWidth = aTexture.getSize().x / someColumns;
+	int tempSpriteHeight = aTexture.getSize().y / someRows;
 
-	//HELLO
+	sf::Sprite tempSprite(aTexture, aSourceRect);
+
 	if (myClock.getElapsedTime().asSeconds() > anAninmationSpeed)
 	{
-		if (tempSourceRect.left == aSpriteWidth * someColumns)
-			tempSourceRect.left = 0;
+		if (aSourceRect.left == (tempSpriteWidth * someColumns) - tempSpriteWidth)
+			aSourceRect.left = 0;
 		else
-			tempSourceRect.left += aSpriteWidth;
+			aSourceRect.left += tempSpriteWidth;
 
-		tempSprite.setTextureRect(tempSourceRect);
+		tempSprite.setTextureRect(aSourceRect);
 		myClock.restart();
-		return tempSprite;
+		//return tempSprite;
 	}
+	tempSprite.setPosition(aPosition);
+	//GameInfo::GetWindow()->close();
+	aSourceRect.height = tempSpriteHeight;
+	//aSourceRect.left = 0; 
+	aSourceRect.width = tempSpriteWidth;
+	//aSourceRect.top = 0;
+	GameInfo::GetWindow()->draw(tempSprite);
 }
