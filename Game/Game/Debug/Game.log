@@ -1,2 +1,22 @@
-﻿  Game.cpp
-  Game.vcxproj -> C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe
+﻿  Animator.cpp
+  Enemy.cpp
+c:\users\nemo.wiren\documents\christian zombies\game\game\enemy.cpp(6): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\nemo.wiren\documents\christian zombies\game\game\enemy.cpp(30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  EnemyFactory.cpp
+  EnemyManager.cpp
+  Entity.cpp
+  Game.cpp
+  Player.cpp
+c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(73): warning C4554: '^': check operator precedence for possible error; use parentheses to clarify precedence
+  Generating Code...
+c:\users\nemo.wiren\documents\christian zombies\game\game\animator.cpp(33): warning C4715: 'Animator::Animate': not all control paths return a value
+  LINK : C:\Users\nemo.wiren\Documents\Christian Zombies\Game\Debug\Game.exe not found or not built by the last incremental link; performing full link
+  Game.vcxproj -> C:\Users\nemo.wiren\Documents\Christian Zombies\Game\Debug\Game.exe
