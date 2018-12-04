@@ -2,6 +2,18 @@
 #define PLAYER_HEADER
 
 #include "Entity.h"
+#include <string>
+
+enum PlayerClass {
+	CLASS_BARBARIAN, CLASS_ARCHER, CLASS_ROGUE
+};
+
+struct PlayerCLAP {
+	PlayerClass myClass;
+	int myLevel;
+	std::vector<std::string> myAchievements;
+	std::vector<std::string> myPerks;
+};
 
 class Player : public Entity
 {
@@ -16,16 +28,21 @@ public:
 	virtual void Move() override;
 	virtual void Attack() override;
 private:
-	bool mySpacePressedFlag;
-
-	float 
+	float
 		myXMovementSpeed,
 		myMaxXMovementSpeed,
 		myYMovementSpeed,
 		myMaxYMovementSpeed,
-		mySpeed;
+		mySpeed,
+		myCastTime;
 	int myPlayerDirection;
+	bool
+		myAttackingFlag = false,
+		myAttack1Flag = false,
+		myAttack2Flag = false;
+
 	sf::RectangleShape myPlayerShape;
+	PlayerCLAP myCLAP;
 };
 
 #endif // !PLAYER_HEADER
