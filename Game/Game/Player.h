@@ -15,11 +15,15 @@ public:
 
 	virtual void Move() override;
 	virtual void Attack() override;
+
+	sf::RectangleShape GetPlayerShape();
+	float GetPlayerXVirtualSpeed();
+
 private:
 	bool mySpacePressedFlag;
-
-	float 
+	float
 		myXMovementSpeed,
+		myXVirtualSpeed,
 		myMaxXMovementSpeed,
 		myYMovementSpeed,
 		myMaxYMovementSpeed,
