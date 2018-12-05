@@ -1,13 +1,14 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "GameInfo.h"
-
 #include <iostream>
 
 Player::Player()
 {
 	myPlayerDirection = 0;
 	mySpeed = 5;
+	myAnimationState = 0;
+	myPreviousState = 1;
 
 	myXMovementSpeed = 0;
 	myYMovementSpeed = 0;
@@ -18,11 +19,8 @@ Player::Player()
 	SetHealthPoints(20.0f);
 	SetDamageValue(5.0f);
 
-	myPlayerShape.setSize(sf::Vector2f(50, 100));
-	myPlayerShape.setPosition(sf::Vector2f((GameInfo::GetWindow()->getSize().x / 2) - (myPlayerShape.getSize().x / 2),
-		(GameInfo::GetWindow()->getSize().y / 2) - (myPlayerShape.getSize().y / 2)));
-	myPlayerShape.setFillColor(sf::Color::Blue);
-
+	myTexture.loadFromFile("Textures/MainWalkCycle.png");
+	myPosition = sf::Vector2f(GameInfo::GetWindow()->getSize().x / 2, GameInfo::GetWindow()->getSize().y / 2);
 	myCLAP.myClass = PlayerClass::CLASS_BARBARIAN;
 }
 
@@ -40,20 +38,31 @@ void Player::Update(const float &aDeltaTimeValue)
 }
 void Player::Draw(sf::RenderWindow *aWindow)
 {
-	aWindow->draw(myPlayerShape);
+	if (myAnimationState == 0)
+	{
+		sf::IntRect tempRect;
+		tempRect.height = myTexture.getSize().y / 2; tempRect.width = myTexture.getSize().x / 9; tempRect.left = 0; tempRect.top = 0;
+		myAnimator.Animate(myTexture, tempRect, myPosition, 9, 2, 99999, aWindow, myPreviousState);
+	}
+	else
+	{
+	myAnimator.Animate(myTexture, mySourceRect, myPosition, 9, 2, 0.05, aWindow, myAnimationState);
+	}
 }
 
 void Player::Move()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && myXMovementSpeed > -myMaxXMovementSpeed)
 	{
+		myAnimationState = 1; myPreviousState = myAnimationState;
 		myXMovementSpeed -= (float)(0.70 * myDeltaTime * 60);
 		myPlayerDirection = 0;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && myXMovementSpeed < myMaxXMovementSpeed)
 	{
+		myAnimationState = 2; myPreviousState = myAnimationState;
 		myXMovementSpeed += (float)(0.70 * myDeltaTime * 60);
-		myPlayerDirection = 1;
+		myPlayerDirection = 2; 
 	}
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
@@ -62,20 +71,28 @@ void Player::Move()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && myYMovementSpeed > -myMaxYMovementSpeed)
 	{
-		myYMovementSpeed -= (float)(0.70 * myDeltaTime * 60);
+		myAnimationState = myPreviousState;
+		myYMovementSpeed -= (float)(5.70 * myDeltaTime * 60);
 		myPlayerDirection = 2;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && myYMovementSpeed < myMaxYMovementSpeed)
 	{
+		myAnimationState = myPreviousState;
 		myYMovementSpeed += (float)(0.70 * myDeltaTime * 60);
 		myPlayerDirection = 3;
 	}
-	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ^ myPlayerShape.getPosition().y < GameInfo::GetWindow()->getSize().y / 4) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ^ myPlayerShape.getPosition().y > GameInfo::GetWindow()->getSize().y * 2 / 3))
+	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ^ myPosition.y < GameInfo::GetWindow()->getSize().y / 4) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ^ myPosition.y > GameInfo::GetWindow()->getSize().y * 2 / 3))
 	{
 		myYMovementSpeed = 0;
 	}
+	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		myAnimationState = 0;
+	}
 
-	myPlayerShape.move(myXMovementSpeed * myDeltaTime * 60, myYMovementSpeed * myDeltaTime * 60);
+	//myPosition.move(myXMovementSpeed * myDeltaTime * 60, myYMovementSpeed * myDeltaTime * 60);
+	myPosition.x = myPosition.x + myXMovementSpeed * myDeltaTime * 60;
+	myPosition.y = myPosition.y + myYMovementSpeed * myDeltaTime * 60;
 }
 
 void Player::Attack()

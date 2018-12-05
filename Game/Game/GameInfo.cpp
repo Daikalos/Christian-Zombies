@@ -3,9 +3,7 @@
 
 sf::RenderWindow* GameInfo::myWindow;
 
-GameInfo::~GameInfo()
-{
-}
+GameInfo::~GameInfo() { }
 
 sf::RenderWindow * GameInfo::GetWindow()
 {

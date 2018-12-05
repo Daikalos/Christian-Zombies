@@ -18,7 +18,7 @@ void Enemy::Init() { }
 void Enemy::Update(const float & aDeltaTimeValue) { }
 void Enemy::Draw(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow)
 {
-	myAnimator.Animate(aTexture, aSourceRect, aPosition, someColumns, someRows, anAninmationSpeed, aWindow);
+	myAnimator.Animate(aTexture, aSourceRect, aPosition, someColumns, someRows, anAninmationSpeed, aWindow, 1);
 }
 
 void Enemy::Move() { }
