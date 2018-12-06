@@ -1,4 +1,11 @@
-﻿  Player.cpp
+﻿  Background.cpp
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(19): warning C4018: '<': signed/unsigned mismatch
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(36): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\game.cpp(59): warning C4305: 'argument': truncation from 'double' to 'float'
+  Player.cpp
 c:\users\tobias.garpenhall\documents\christian-zombies\game\game\player.cpp(64): warning C4554: '^': check operator precedence for possible error; use parentheses to clarify precedence
 c:\users\tobias.garpenhall\documents\christian-zombies\game\game\player.cpp(83): warning C4554: '^': check operator precedence for possible error; use parentheses to clarify precedence
+  Generating Code...
   Game.vcxproj -> C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe

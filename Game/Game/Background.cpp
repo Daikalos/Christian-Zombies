@@ -47,7 +47,7 @@ void Background::Update(sf::Vector2f aPlayerPosition, float aPlayerSpeed)
 {
 	if (myGroundSprite.getPosition().x - (aPlayerSpeed - 1) < 0 && myGroundSprite.getPosition().x + myGroundSprite.getGlobalBounds().width - (aPlayerSpeed + 1) > GameInfo::GetWindow()->getSize().x)
 	{
-		if (aPlayerPosition.x <= 150 || aPlayerPosition.x >= GameInfo::GetWindow()->getSize().x - 150)
+		if (aPlayerPosition.x <= 100 || aPlayerPosition.x >= GameInfo::GetWindow()->getSize().x - 100)
 		{
 			myGroundSprite.setPosition(myGroundSprite.getPosition().x - (aPlayerSpeed), myGroundSprite.getPosition().y);
 			for (size_t i = myPropSprites.size(); i > 0; i--)

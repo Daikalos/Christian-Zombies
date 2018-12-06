@@ -61,7 +61,7 @@ void Player::Move()
 			myXVirtualSpeed += (float)(0.70 * myDeltaTime * 60);
 		}
 	}
-	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::A) ^ myPlayerShape.getPosition().x < 150) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::D) ^ myPlayerShape.getPosition().x > GameInfo::GetWindow()->getSize().x - 150))
+	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::A) ^ myPlayerShape.getPosition().x < 100) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::D) ^ myPlayerShape.getPosition().x > GameInfo::GetWindow()->getSize().x - 100))
 	{
 		myXMovementSpeed = 0;
 	}
