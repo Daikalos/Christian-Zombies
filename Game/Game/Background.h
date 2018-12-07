@@ -10,7 +10,7 @@ public:
 	Background();
 	~Background();
 
-	void Update(sf::Vector2f aPlayerPosition, float aPlayerSpeed);
+	void Update(sf::Vector2f aPlayerPosition, float aPlayerSpeed, const float &aDeltaTimeValue);
 	void DrawBackground();
 	void DrawProps();
 

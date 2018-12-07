@@ -9,7 +9,7 @@ class Animator
 public:
 	Animator();
 	~Animator();
-	void Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow);
+	void Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow, int RowToAnimate);
 
 private:
 	sf::Clock myClock;

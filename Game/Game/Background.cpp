@@ -10,7 +10,7 @@ Background::Background()
 
 	myBackgroundSprite.setTexture(myBackgroundTexture);
 	myBackgroundSprite.setTextureRect(sf::IntRect(0, 0, myBackgroundTexture.getSize().x, myBackgroundTexture.getSize().y));
-	myBackgroundSprite.setPosition(sf::Vector2f(0, 0));
+	myBackgroundSprite.setPosition(sf::Vector2f(-160, 0));
 
 	myGroundSprite.setTexture(myGroundTexture);
 	myGroundSprite.setTextureRect(sf::IntRect(0, 0, myGroundTexture.getSize().x, myGroundTexture.getSize().y));
@@ -43,16 +43,20 @@ Background::~Background()
 
 }
 
-void Background::Update(sf::Vector2f aPlayerPosition, float aPlayerSpeed)
+void Background::Update(sf::Vector2f aPlayerPosition, float aPlayerSpeed, const float &aDeltaTimeValue)
 {
-	if (myGroundSprite.getPosition().x - (aPlayerSpeed - 1) < 0 && myGroundSprite.getPosition().x + myGroundSprite.getGlobalBounds().width - (aPlayerSpeed + 1) > GameInfo::GetWindow()->getSize().x)
+	if (myGroundSprite.getPosition().x - aPlayerSpeed < 0 && myGroundSprite.getPosition().x + myGroundSprite.getGlobalBounds().width - aPlayerSpeed > GameInfo::GetWindow()->getSize().x)
 	{
-		if (aPlayerPosition.x <= 100 || aPlayerPosition.x >= GameInfo::GetWindow()->getSize().x - 100)
+		if (aPlayerPosition.x < 100 - aPlayerSpeed || aPlayerPosition.x > GameInfo::GetWindow()->getSize().x - 100 - aPlayerSpeed)
 		{
-			myGroundSprite.setPosition(myGroundSprite.getPosition().x - (aPlayerSpeed), myGroundSprite.getPosition().y);
+			myBackgroundSprite.setPosition(myBackgroundSprite.getPosition().x - (aPlayerSpeed * 0.25 * aDeltaTimeValue * 60),
+				myBackgroundSprite.getPosition().y);
+			myGroundSprite.setPosition(myGroundSprite.getPosition().x - (aPlayerSpeed * aDeltaTimeValue * 60), 
+				myGroundSprite.getPosition().y);
 			for (size_t i = myPropSprites.size(); i > 0; i--)
 			{
-				myPropSprites[i - 1].setPosition(myPropSprites[i - 1].getPosition().x - (aPlayerSpeed * 1.5), myPropSprites[i - 1].getPosition().y);
+				myPropSprites[i - 1].setPosition(myPropSprites[i - 1].getPosition().x - (aPlayerSpeed * 1.5 * aDeltaTimeValue * 60), 
+					myPropSprites[i - 1].getPosition().y);
 			}
 		}
 	}

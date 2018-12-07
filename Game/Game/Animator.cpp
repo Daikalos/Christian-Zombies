@@ -14,7 +14,7 @@ Animator::~Animator()
 
 }
 
-void Animator::Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow)
+void Animator::Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow, int RowToAnimate)
 {
 	int tempSpriteWidth = aTexture.getSize().x / someColumns;
 	int tempSpriteHeight = aTexture.getSize().y / someRows;
@@ -28,15 +28,12 @@ void Animator::Animate(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vecto
 		else
 			aSourceRect.left += tempSpriteWidth;
 
-		tempSprite.setTextureRect(aSourceRect);
 		myClock.restart();
-		//return tempSprite;
 	}
 	tempSprite.setPosition(aPosition);
-	//GameInfo::GetWindow()->close();
-	aSourceRect.height = tempSpriteHeight;
-	//aSourceRect.left = 0; 
+	aSourceRect.height = tempSpriteHeight * RowToAnimate;
+	aSourceRect.top = tempSpriteHeight * (RowToAnimate - 1);
+	tempSprite.setTextureRect(aSourceRect);
 	aSourceRect.width = tempSpriteWidth;
-	//aSourceRect.top = 0;
 	GameInfo::GetWindow()->draw(tempSprite);
 }
