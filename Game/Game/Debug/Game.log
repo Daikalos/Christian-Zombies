@@ -1,6 +1,4 @@
-﻿  Background.cpp
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(19): warning C4018: '<': signed/unsigned mismatch
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(36): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\background.cpp(58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Game.cpp
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\game.cpp(45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\game.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
   Game.vcxproj -> C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe
