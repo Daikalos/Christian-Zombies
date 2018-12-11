@@ -10,8 +10,8 @@ enum PlayerClass {
 };
 
 struct PlayerCLAP {
-	PlayerClass myClass;
-	int myLevel;
+	PlayerClass myClass = CLASS_BARBARIAN;
+	int myLevel = 1;
 	std::vector<std::string> myAchievements;
 	std::vector<std::string> myPerks;
 };
@@ -33,6 +33,9 @@ public:
 	virtual void Move() override;
 	virtual void Attack() override;
 
+	void AddExperiencePoints(float anExperienceValue);
+	void SetExperiencePoints(float anExperienceValue);
+
 	sf::Vector2f GetPosition();
 	float GetPlayerXVirtualSpeed();
 
@@ -43,8 +46,9 @@ private:
 		myXVirtualSpeed,
 		myYMovementSpeed,
 		mySpeed,
-		myCastTime;
-	 int 
+		myCastTime,
+		myExperiencePoints = 0;
+	int
 		myPlayerDirection,
 	    myAnimationState,
 	    myPreviousState;
