@@ -72,16 +72,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Sync\SFML\SFML-2.5.1\include;C:\Sync\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Sync\SFML\SFML-2.5.1\lib;C:\Sync\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Sync\SFML\include;C:\Sync\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Sync\SFML\lib;C:\Sync\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Sync\SFML\SFML-2.5.1\include;C:\Sync\SFML\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Sync\SFML\SFML-2.5.1\lib;C:\Sync\SFML\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Sync\SFML\include;C:\Sync\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Sync\SFML\lib;C:\Sync\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -154,9 +154,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnemyManager.h" />
+    <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameInfo.h" />
     <ClInclude Include="NCFReader.h" />
@@ -168,9 +170,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameInfo.cpp" />

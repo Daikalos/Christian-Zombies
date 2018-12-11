@@ -9,7 +9,8 @@ public:
 	static sf::RenderWindow* GetWindow();
 	static void SetWindowProperties(sf::VideoMode aVideoMode, std::string someToolbarText);
 private:
-	GameInfo() {
+	GameInfo() 
+	{
 
 	};
 	static sf::RenderWindow* myWindow;

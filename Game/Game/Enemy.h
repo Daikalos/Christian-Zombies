@@ -13,10 +13,10 @@ public:
 	~Enemy();
 
 	virtual void Init() override;
-	virtual void Update(const float &aDeltaTimeValue) override;
+	virtual void Update(const float &aDeltaTimeValue, sf::Vector2f aPlayerPos);
 	virtual void Draw(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow);
 
-	virtual void Move() override;
+	virtual void Move(sf::Vector2f aPlayerPos);
 	virtual void Attack() override;
 	virtual void RecieveMessage(const MessageType & aMessageType) override;
 	sf::Texture myTexture;
@@ -26,6 +26,8 @@ public:
 
 private:
 	sf::RectangleShape myEnemyShape;
+	int myAnimationState;
+
 };
 
 #endif // !ENEMY_HEADER
