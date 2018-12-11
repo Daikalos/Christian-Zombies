@@ -1,4 +1,12 @@
-﻿  Game.cpp
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\game.cpp(45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\game.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
-  Game.vcxproj -> C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe
+﻿  Enemy.cpp
+c:\users\ludvig.sahlen\documents\christian-zombies\game\game\enemy.cpp(8): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\ludvig.sahlen\documents\christian-zombies\game\game\enemy.cpp(10): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Game.vcxproj -> C:\Users\ludvig.sahlen\Documents\Christian-Zombies\Game\Debug\Game.exe
