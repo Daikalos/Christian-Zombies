@@ -10,6 +10,7 @@ Enemy::Enemy()
 	{ myPosition = sf::Vector2f(-700, (rand() % 200) + 500); }
 	myAnimationState = 1;
 	sf::IntRect mySourceRect(0, 0, myTexture.getSize().x, myTexture.getSize().y);
+	sf::IntRect myDestRect(0, 0, myTexture.getSize().x / 2, myTexture.getSize().y / 2);
 }
 
 Enemy::~Enemy()
@@ -20,6 +21,7 @@ Enemy::~Enemy()
 void Enemy::Init() { }
 void Enemy::Update(const float & aDeltaTimeValue, sf::Vector2f aPlayerPos) 
 {
+	myDestRect = myBox.DrawBox(myDestRect, myPosition);
 	myDeltaTime = aDeltaTimeValue;
 	Enemy::Move(aPlayerPos);
 }

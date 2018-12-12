@@ -5,6 +5,7 @@
 #include "Subscriber.h"
 #include "Postmaster.h"
 #include "Animator.h"
+#include "CollisionBox.h"
 
 class Enemy : public Entity, public Subscriber
 {
@@ -21,8 +22,10 @@ public:
 	virtual void RecieveMessage(const MessageType & aMessageType) override;
 	sf::Texture myTexture;
 	sf::IntRect mySourceRect;
+	sf::IntRect myDestRect;
 	sf::Vector2f myPosition;
 	Animator myAnimator;
+	CollisionBox myBox;
 
 private:
 	sf::RectangleShape myEnemyShape;
