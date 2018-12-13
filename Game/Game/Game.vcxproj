@@ -161,6 +161,7 @@
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameInfo.h" />
+    <ClInclude Include="LevelProgression.h" />
     <ClInclude Include="NCFReader.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Postmaster.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameInfo.cpp" />
+    <ClCompile Include="LevelProgression.cpp" />
     <ClCompile Include="NCFReader.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Postmaster.cpp" />

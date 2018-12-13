@@ -3,7 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
-class GameInfo {
+class GameInfo 
+{
 public:
 	~GameInfo();
 	static sf::RenderWindow* GetWindow();
