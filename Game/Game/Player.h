@@ -34,8 +34,6 @@ public:
 	virtual void Attack() override;
 
 	sf::Vector2f GetPosition();
-	void SetPosition(sf::Vector2f aNewPosition);
-
 	float GetPlayerXVirtualSpeed();
 
 private:
