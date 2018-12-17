@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "GameInfo.h"
+#include <cmath>
 #include <iostream>
 
 Player::Player()
@@ -33,6 +34,15 @@ void Player::Update(const float &aDeltaTimeValue)
 	myDeltaTime = aDeltaTimeValue;
 	Move();
 	Attack();
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) AddExperiencePoints(1);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) SetExperiencePoints(0);
+
+	if (myExperiencePoints > std::pow(10, 1 + (0.1f * myCLAP.myLevel))) 
+	{
+		myExperiencePoints -= std::pow(10, 1 + (0.1f * myCLAP.myLevel));
+		myCLAP.myLevel++;
+	}
 }
 void Player::Draw(sf::RenderWindow *aWindow)
 {
@@ -165,22 +175,6 @@ void Player::Attack()
 	{
 		myCastTime -= myDeltaTime;
 	}
-}
-
-sf::Vector2f Player::GetPosition()
-{
-	return myPosition;
-}
-
-void Player::SetPosition(sf::Vector2f aNewPosition)
-{
-	this->myPosition = aNewPosition;
-}
-
-float Player::GetPlayerXVirtualSpeed()
-{
-	return myXVirtualSpeed;
-}
 
 	/*
 	Attack 1: Kick
@@ -206,4 +200,39 @@ float Player::GetPlayerXVirtualSpeed()
 	1. Start the attack cast time
 	2. If an enemy is within the area during the cast time, the player enters a 'stabbing' state
 	3. Spamming 'Attack 2' will deal multiple blows within a set amount of time
-		*/
+	*/
+}
+
+void Player::AddExperiencePoints(float anExperienceValue)
+{
+	myExperiencePoints += anExperienceValue;
+	std::cout << std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
+}
+
+void Player::SetExperiencePoints(float anExperienceValue)
+{
+	myExperiencePoints = anExperienceValue;
+	std::cout << std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
+}
+
+void Player::RecieveMessage(const MessageType &aMessageType)
+{
+	if (aMessageType == MessageType::EastPlayerPos)
+	{
+		myPosition = sf::Vector2f(100, myPosition.y);
+	}
+	if (aMessageType == MessageType::WestPlayerPos)
+	{
+		myPosition = sf::Vector2f(GameInfo::GetWindow()->getSize().x - 100, myPosition.y);
+	}
+}
+
+sf::Vector2f Player::GetPosition()
+{
+	return myPosition;
+}
+
+float Player::GetPlayerXVirtualSpeed()
+{
+	return myXVirtualSpeed;
+}

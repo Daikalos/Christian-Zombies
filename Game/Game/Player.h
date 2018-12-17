@@ -4,19 +4,20 @@
 #include "Entity.h"
 #include <string>
 #include "Animator.h"
+#include "Subscriber.h"
 
 enum PlayerClass {
 	CLASS_BARBARIAN, CLASS_ARCHER, CLASS_ROGUE
 };
 
 struct PlayerCLAP {
-	PlayerClass myClass;
-	int myLevel;
+	PlayerClass myClass = CLASS_BARBARIAN;
+	int myLevel = 1;
 	std::vector<std::string> myAchievements;
 	std::vector<std::string> myPerks;
 };
 
-class Player : public Entity
+class Player : public Entity, public Subscriber
 {
 public:
 	Player();
@@ -29,13 +30,15 @@ public:
 	virtual void Init() override;
 	virtual void Update(const float &aDeltaTimeValue) override;
 	virtual void Draw(sf::RenderWindow *aWindow);
+	virtual void RecieveMessage(const MessageType & aMessageType) override;
 
 	virtual void Move() override;
 	virtual void Attack() override;
 
-	sf::Vector2f GetPosition();
-	void SetPosition(sf::Vector2f aNewPosition);
+	void AddExperiencePoints(float anExperienceValue);
+	void SetExperiencePoints(float anExperienceValue);
 
+	sf::Vector2f GetPosition();
 	float GetPlayerXVirtualSpeed();
 
 private:
@@ -45,8 +48,9 @@ private:
 		myXVirtualSpeed,
 		myYMovementSpeed,
 		mySpeed,
-		myCastTime;
-	 int 
+		myCastTime,
+		myExperiencePoints = 0;
+	int
 		myPlayerDirection,
 	    myAnimationState,
 	    myPreviousState;

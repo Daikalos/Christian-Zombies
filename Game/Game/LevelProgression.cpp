@@ -89,13 +89,13 @@ void LevelProgression::LoadNewLevel(Background &aBackground, Player &aPlayer, fl
 				aBackground.RandomizeProps();
 				if (aPlayer.GetPosition().x < (GameInfo::GetWindow()->getSize().x / 2))
 				{
-					aPlayer.SetPosition(sf::Vector2f(GameInfo::GetWindow()->getSize().x - 100, aPlayer.GetPosition().y));
+					aPlayer.RecieveMessage(MessageType::WestPlayerPos);
 					aBackground.SetGroundSpritePos(sf::Vector2f(-520, 0));
 					aBackground.SetBackgroundSpritePos(sf::Vector2f(-320, 0));
 				}
 				else
 				{
-					aPlayer.SetPosition(sf::Vector2f(100, aPlayer.GetPosition().y));
+					aPlayer.RecieveMessage(MessageType::EastPlayerPos);
 					aBackground.SetGroundSpritePos(sf::Vector2f(0, 0));
 					aBackground.SetBackgroundSpritePos(sf::Vector2f(0, 0));
 				}
