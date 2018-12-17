@@ -35,7 +35,6 @@ public:
 
 	void AddExperiencePoints(float anExperienceValue);
 	void SetExperiencePoints(float anExperienceValue);
-	void SetLevel(float aLevel);
 
 	sf::Vector2f GetPosition();
 	float GetPlayerXVirtualSpeed();
@@ -58,12 +57,6 @@ private:
 		myAttack1Flag = false,
 		myAttack2Flag = false;
 	PlayerCLAP myCLAP;
-	sf::RectangleShape myUIExpBar;
-	sf::RectangleShape myUIHPBar;
-	sf::Text myUILevel;
-
-	sf::RectangleShape myUIExpBackground;
-	sf::RectangleShape myUIHPBackground;
 };
 
 #endif // !PLAYER_HEADER
