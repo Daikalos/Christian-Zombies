@@ -36,14 +36,41 @@ void Player::Update(const float &aDeltaTimeValue)
 	Move();
 	Attack();
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) AddExperiencePoints(1);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) SetExperiencePoints(0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1)) AddExperiencePoints(1);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2)) SetExperiencePoints(0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3)) SetLevel(1);
 
 	if (myExperiencePoints > std::pow(10, 1 + (0.1f * myCLAP.myLevel))) 
 	{
 		myExperiencePoints -= std::pow(10, 1 + (0.1f * myCLAP.myLevel));
 		myCLAP.myLevel++;
+		std::cout << "Level Up!" << std::endl;
 	}
+
+	float tempExpProgress = myExperiencePoints / std::pow(10, 1 + (0.1f * myCLAP.myLevel));
+	int tempBarLength = 500;
+
+	sf::Font tempFont;
+
+	myUIExpBackground.setPosition(10, 10);
+	myUIExpBackground.setFillColor(sf::Color::Color(40, 40, 40, 255));
+	myUIExpBackground.setSize(sf::Vector2f(tempBarLength, 20));
+
+	myUIHPBackground.setPosition(GameInfo::GetWindow()->getSize().x - 10 - tempBarLength, 10);
+	myUIHPBackground.setFillColor(sf::Color::Color(40, 40, 40, 255));
+	myUIHPBackground.setSize(sf::Vector2f(tempBarLength, 20));
+
+	myUIExpBar.setPosition(10, 10);
+	myUIExpBar.setFillColor(sf::Color::Color(0, 175, 0, 255));
+	myUIExpBar.setSize(sf::Vector2f(tempExpProgress * tempBarLength, 20));
+
+	myUIHPBar.setPosition(GameInfo::GetWindow()->getSize().x - 10 - tempBarLength, 10);
+	myUIHPBar.setFillColor(sf::Color::Color(175, 0, 0, 255));
+	myUIHPBar.setSize(sf::Vector2f(myHealthPoints / myMaxHealth * tempBarLength, 20));
+
+	myUILevel.setString(std::to_string(myCLAP.myLevel));
+	myUILevel.setPosition(GameInfo::GetWindow()->getSize().x / 2, 10);
+	myUILevel.setFillColor(sf::Color::Color(0, 0, 175, 255));
 }
 void Player::Draw(sf::RenderWindow *aWindow)
 {
@@ -57,6 +84,12 @@ void Player::Draw(sf::RenderWindow *aWindow)
 	{
 		myAnimator.Animate(myTexture, mySourceRect, myPosition, 9, 2, 0.05, aWindow, myAnimationState);
 	}
+
+	aWindow->draw(myUIExpBackground);
+	aWindow->draw(myUIHPBackground);
+	aWindow->draw(myUIExpBar);
+	aWindow->draw(myUIHPBar);
+	aWindow->draw(myUILevel);
 }
 
 void Player::Move()
@@ -207,13 +240,20 @@ void Player::Attack()
 void Player::AddExperiencePoints(float anExperienceValue)
 {
 	myExperiencePoints += anExperienceValue;
-	std::cout << std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
+	std::cout << "Exp Add | " + std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
 }
 
 void Player::SetExperiencePoints(float anExperienceValue)
 {
 	myExperiencePoints = anExperienceValue;
-	std::cout << std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
+	std::cout << "Exp Set | " + std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
+}
+
+void Player::SetLevel(float aLevel)
+{
+	myCLAP.myLevel = aLevel;
+	myExperiencePoints = 0;
+	std::cout << "Level Set | " + std::to_string(myExperiencePoints) + " | " + std::to_string(std::pow(10, 1 + (0.1f * myCLAP.myLevel))) + " | " + std::to_string(myCLAP.myLevel) << std::endl;
 }
 
 sf::Vector2f Player::GetPosition()
