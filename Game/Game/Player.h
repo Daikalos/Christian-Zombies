@@ -4,15 +4,14 @@
 #include "Entity.h"
 #include <string>
 #include "Animator.h"
-#include "CollisionBox.h"
 
 enum PlayerClass {
 	CLASS_BARBARIAN, CLASS_ARCHER, CLASS_ROGUE
 };
 
 struct PlayerCLAP {
-	PlayerClass myClass = CLASS_BARBARIAN;
-	int myLevel = 1;
+	PlayerClass myClass;
+	int myLevel;
 	std::vector<std::string> myAchievements;
 	std::vector<std::string> myPerks;
 };
@@ -26,9 +25,6 @@ public:
 	sf::IntRect mySourceRect;
 	sf::Vector2f myPosition;
 	Animator myAnimator;
-	CollisionBox myBox;
-	sf::IntRect myDestRect;
-	sf::Sprite mySprite;
 
 	virtual void Init() override;
 	virtual void Update(const float &aDeltaTimeValue) override;
@@ -36,10 +32,6 @@ public:
 
 	virtual void Move() override;
 	virtual void Attack() override;
-
-	void AddExperiencePoints(float anExperienceValue);
-	void SetExperiencePoints(float anExperienceValue);
-	void SetLevel(float aLevel);
 
 	sf::Vector2f GetPosition();
 	float GetPlayerXVirtualSpeed();
@@ -51,23 +43,16 @@ private:
 		myXVirtualSpeed,
 		myYMovementSpeed,
 		mySpeed,
-		myCastTime,
-		myExperiencePoints = 0;
-	int
+		myCastTime;
+	 int 
 		myPlayerDirection,
-		myAnimationState,
-		myPreviousState;
+	    myAnimationState,
+	    myPreviousState;
 	bool
 		myAttackingFlag = false,
 		myAttack1Flag = false,
 		myAttack2Flag = false;
 	PlayerCLAP myCLAP;
-	sf::RectangleShape myUIExpBar;
-	sf::RectangleShape myUIHPBar;
-	sf::Text myUILevel;
-
-	sf::RectangleShape myUIExpBackground;
-	sf::RectangleShape myUIHPBackground;
 };
 
 #endif // !PLAYER_HEADER
