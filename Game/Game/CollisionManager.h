@@ -8,20 +8,7 @@ class CollisionManager
 public:
 	CollisionManager();
 	~CollisionManager();
-	bool CheckCollison(sf::IntRect, sf::IntRect);
-
-private:
+	static bool CheckCollison(sf::IntRect, sf::IntRect);
 
 };
-
-CollisionManager::CollisionManager()
-{
-
-}
-
-CollisionManager::~CollisionManager()
-{
-
-}
-
 #endif

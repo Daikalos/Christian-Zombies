@@ -22,10 +22,10 @@ public:
 	virtual void RecieveMessage(const MessageType & aMessageType) override;
 	sf::Texture myTexture;
 	sf::IntRect mySourceRect;
-	sf::IntRect myDestRect;
 	sf::Vector2f myPosition;
 	Animator myAnimator;
 	CollisionBox myBox;
+	sf::IntRect myDestRect;
 
 private:
 	sf::RectangleShape myEnemyShape;
