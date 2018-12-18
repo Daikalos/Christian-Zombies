@@ -31,6 +31,8 @@ public:
 	Animator myAnimator;
 
 private:
+	sf::RectangleShape myUIHPBar;
+	sf::RectangleShape myUIHPBackground;
 	BossStage myBossStage;
 	int myAnimationState;
 	float mySpeed;

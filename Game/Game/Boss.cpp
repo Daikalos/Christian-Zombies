@@ -10,19 +10,17 @@ Boss::Boss()
 	myAnimationState = 1;
 	myBossStage = BossStage::Stage1;
 
+	sf::IntRect mySourceRect(0, 0, myTexture.getSize().x, myTexture.getSize().y);
+	myTexture.loadFromFile("Textures/ZombieCycle3.png");
+
 	if ((rand() % 100) + 1 > 50)
 	{
-		myPosition = sf::Vector2f(1500, (rand() % 200) + 500);
+		myPosition = sf::Vector2f(GameInfo::GetWindow()->getSize().x + (rand() % 100) + 100, (rand() % 200) + 500);
 	}
 	else
 	{
-		myPosition = sf::Vector2f(-700, (rand() % 200) + 500);
+		myPosition = sf::Vector2f(-((rand() % 100) + 200), (rand() % 200) + 500);
 	}
-
-	myTexture.loadFromFile("Textures/ZombieCycle3.png");
-	myPosition = sf::Vector2f(rand() % 1000, rand() % 500);
-
-	sf::IntRect mySourceRect(0, 0, myTexture.getSize().x, myTexture.getSize().y);
 }
 
 
