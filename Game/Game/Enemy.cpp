@@ -21,7 +21,7 @@ void Enemy::Init() { }
 void Enemy::Update(const float & aDeltaTimeValue, sf::Vector2f aPlayerPos) 
 {
 	myDeltaTime = aDeltaTimeValue;
-	Enemy::Move(aPlayerPos);
+	Move(aPlayerPos);
 }
 void Enemy::Draw(sf::Texture aTexture, sf::IntRect &aSourceRect, sf::Vector2f aPosition, int someColumns, int someRows, float anAninmationSpeed, sf::RenderWindow *aWindow)
 {

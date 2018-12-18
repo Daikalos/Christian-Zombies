@@ -6,11 +6,13 @@
 #include "Animator.h"
 #include "Subscriber.h"
 
-enum PlayerClass {
+enum PlayerClass 
+{
 	CLASS_BARBARIAN, CLASS_ARCHER, CLASS_ROGUE
 };
 
-struct PlayerCLAP {
+struct PlayerCLAP 
+{
 	PlayerClass myClass = CLASS_BARBARIAN;
 	int myLevel = 1;
 	std::vector<std::string> myAchievements;

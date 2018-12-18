@@ -7,7 +7,9 @@
 
 enum BossStage
 {
-
+	Stage1, 
+	Stage2,
+	Stage3
 };
 
 class Boss : public Entity, public Subscriber
@@ -17,10 +19,10 @@ public:
 	~Boss();
 
 	virtual void Init() override;
-	virtual void Update(const float &aDeltaTimeValue) override;
-	virtual void Draw();
+	virtual void Update(const float &aDeltaTimeValue, sf::Vector2f aPlayerPos);
+	virtual void Draw(); 
 
-	virtual void Move() override;
+	virtual void Move(sf::Vector2f aPlayerPos);
 	virtual void Attack() override;
 	virtual void RecieveMessage(const MessageType & aMessageType) override;
 	sf::Texture myTexture;
@@ -29,7 +31,9 @@ public:
 	Animator myAnimator;
 
 private:
-
+	BossStage myBossStage;
+	int myAnimationState;
+	float mySpeed;
 };
 
 #endif // !BOSS_HEADER

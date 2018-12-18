@@ -1,9 +1,9 @@
-﻿  LevelProgression.cpp
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\levelprogression.cpp(19): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\levelprogression.cpp(31): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\levelprogression.cpp(66): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\levelprogression.cpp(67): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-c:\users\tobias.garpenhall\documents\christian-zombies\game\game\levelprogression.cpp(118): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-  LINK : C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe not found or not built by the last incremental link; performing full link
-Game.obj : error LNK2011: precompiled object not linked in; image may not run
-C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Boss.cpp
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(9): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(46): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(50): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\tobias.garpenhall\documents\christian-zombies\game\game\boss.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> C:\Users\tobias.garpenhall\Documents\Christian-Zombies\Game\Debug\Game.exe
