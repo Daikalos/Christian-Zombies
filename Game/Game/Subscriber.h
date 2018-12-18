@@ -3,8 +3,8 @@
 
 enum MessageType //All actions 
 {
-	Type1,
-	Type2,
+	WestPlayerPos,
+	EastPlayerPos,
 	Type3
 };
 

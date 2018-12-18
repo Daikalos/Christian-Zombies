@@ -20,6 +20,10 @@ Enemy::~Enemy()
 void Enemy::Init() { }
 void Enemy::Update(const float & aDeltaTimeValue, sf::Vector2f aPlayerPos) 
 {
+	myDestRect.width = 50;
+	myDestRect.height = 50;
+	myDestRect.top = myPosition.y;
+	myDestRect.left = myPosition.x;
 	myDeltaTime = aDeltaTimeValue;
 	Enemy::Move(aPlayerPos);
 }
