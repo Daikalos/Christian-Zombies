@@ -137,7 +137,7 @@ void Player::Move()
 		myYMovementSpeed = mySpeed;
 		myPlayerDirection = 3;
 	}
-	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ^ myPosition.y < GameInfo::GetWindow()->getSize().y - 155) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ^ myPosition.y > GameInfo::GetWindow()->getSize().y - 65))
+	if ((!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ^ myPosition.y - myYMovementSpeed < GameInfo::GetWindow()->getSize().y - 155) && (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ^ myPosition.y + myYMovementSpeed > GameInfo::GetWindow()->getSize().y - 65))
 	{
 		myYMovementSpeed = 0;
 	}
