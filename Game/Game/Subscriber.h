@@ -5,7 +5,10 @@ enum MessageType //All actions
 {
 	WestPlayerPos,
 	EastPlayerPos,
-	Type3
+	MoveEnemiesLeft,
+	MoveEnemiesRight,
+	PauseEnemies,
+	IsDead
 };
 
 class Subscriber

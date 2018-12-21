@@ -11,11 +11,10 @@ public:
 	~LevelProgression();
 
 	void DrawArrows(float const &aDeltaTime);
-	void LoadNewLevel(Background &aBackground, Player &aPlayer, float const &aDeltaTime);
+	void LoadNewLevel(Background &aBackground, Player &aPlayer, Director &aDirector, Boss &aBoss, int &aNbrOfEnemies, float const &aDeltaTime);
 	void SetLoadNewLevel(bool aNewValue);
 
 private:
-	int myLevel;
 	float 
 		myAlpha,
 		myGreenColor;

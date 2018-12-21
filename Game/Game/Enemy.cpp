@@ -61,5 +61,20 @@ void Enemy::Attack() { }
 
 void Enemy::RecieveMessage(const MessageType &aMessageType)
 {
+	if (aMessageType == MessageType::IsDead)
+	{
+		
+	}
+	if (aMessageType == MessageType::MoveEnemiesLeft)
+	{
+		myPosition.x -= 5;
+	}
+	if (aMessageType == MessageType::MoveEnemiesRight)
+	{
+		myPosition.x += 5;
+	}
+	if (aMessageType == MessageType::PauseEnemies)
+	{
 
+	}
 }

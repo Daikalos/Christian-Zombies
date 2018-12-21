@@ -4,7 +4,6 @@
 
 LevelProgression::LevelProgression()
 {
-	myLevel = 0;
 	myAlpha = 0;
 	myGreenColor = 144;
 	mySwitchAlphaValue = false;
@@ -70,7 +69,7 @@ void LevelProgression::DrawArrows(float const &aDeltaTime)
 	GameInfo::GetWindow()->draw(myArrow);
 }
 
-void LevelProgression::LoadNewLevel(Background &aBackground, Player &aPlayer, float const &aDeltaTime)
+void LevelProgression::LoadNewLevel(Background &aBackground, Player &aPlayer, Director &aDirector, Boss &aBoss, int &aNbrOfEnemies, float const &aDeltaTime)
 {
 	if (myLoadNewLevel)
 	{
@@ -84,7 +83,7 @@ void LevelProgression::LoadNewLevel(Background &aBackground, Player &aPlayer, fl
 			{
 				mySwitchAlphaValue = true;
 				myAlpha = 255;
-				myLevel++; //Exempel...
+				aDirector.InitializeLevel(aNbrOfEnemies, aBoss);
 
 				aBackground.RandomizeProps();
 				if (aPlayer.GetPosition().x < (GameInfo::GetWindow()->getSize().x / 2))

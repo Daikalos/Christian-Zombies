@@ -1,5 +1,10 @@
-﻿  Player.cpp
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(23): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+﻿  Boss.cpp
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(48): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(48): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -8,35 +13,103 @@ c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(23): warnin
           [
               T=float
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(45): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(50): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(57): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(59): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(92): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(93): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(148): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          and
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(214): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(217): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(67): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          and
+          [
+              T=int
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(220): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
-              T=unsigned int
+              T=float
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(72): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          and
+          [
+              T=int
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(231): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
-              T=unsigned int
+              T=float
           ]
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(115): warning C4554: '^': check operator precedence for possible error; use parentheses to clarify precedence
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(141): warning C4554: '^': check operator precedence for possible error; use parentheses to clarify precedence
-c:\users\nemo.wiren\documents\christian zombies\game\game\player.cpp(254): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Game.vcxproj -> C:\Users\nemo.wiren\Documents\Christian Zombies\Game\Debug\Game.exe
+          and
+          [
+              T=int
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\boss.cpp(246): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+  Enemy.cpp
+c:\users\tobias\documents\github\christian-zombies\game\game\enemy.cpp(8): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\enemy.cpp(10): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\enemy.cpp(25): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+c:\users\tobias\documents\github\christian-zombies\game\game\enemy.cpp(26): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+  Generating Code...
+  Game.vcxproj -> C:\Users\Tobias\Documents\GitHub\Christian-Zombies\Game\Debug\Game.exe
