@@ -23,6 +23,7 @@ public:
 	sf::IntRect mySourceRect;
 	sf::Vector2f myPosition;
 	Animator myAnimator;
+	sf::IntRect myDestRect;
 
 private:
 	sf::RectangleShape myEnemyShape;
